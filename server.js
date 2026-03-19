@@ -11,7 +11,10 @@ const JWT_SECRET = process.env.JWT_SECRET || 'cpd-secret-key-change-in-productio
 const MONGO_URI = process.env.MONGO_URI || process.env.MONGODB_URL || 'mongodb://localhost:27017/cpd';
 
 // ===== MIDDLEWARE =====
-app.use(cors());
+app.use(cors({
+  origin: ['https://martin54-hub2.github.io', 'http://localhost:3000', 'http://localhost:5500', 'http://127.0.0.1:5500'],
+  credentials: true
+}));
 app.use(express.json({ limit: '10mb' }));
 
 // ===== MONGOOSE CONNECT =====
